@@ -87,17 +87,17 @@ def update(entity):
         return data,200
     return {"message":"x and y coordinates are required"},400
 
-@app.route("/world", methods=['POST','GET'])    
+@app.route("/world", methods=['GET'])    
 def world():
     '''you should probably return the world here'''
     return myWorld.world()
 
-@app.route("/entity/<entity>")    
+@app.route("/entity/<entity>", methods=['GET'])    
 def get_entity(entity):
     '''This is the GET version of the entity interface, return a representation of the entity'''
     return myWorld.get(entity)
 
-@app.route("/clear", methods=['POST','GET'])
+@app.route("/clear", methods=['POST'])
 def clear():
     '''Clear the world out!'''
     myWorld.clear()
